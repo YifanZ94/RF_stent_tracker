@@ -11,6 +11,11 @@ p4=[];
 p5=[];
 p6=[];
 
+set(groot, 'defaultAxesTickLabelInterpreter', 'latex');
+set(groot, 'defaultTextInterpreter', 'latex');
+set(groot, 'defaultLegendInterpreter', 'latex');
+set(groot, 'defaultAxesTickLabelInterpreter', 'latex');
+
 for i=1:41;
     p1(i)=p1raw(1+15*(i-1));
     p2(i)=p2raw(1+15*(i-1));
@@ -39,6 +44,6 @@ legend('0','45','90','135','180');
 xlabel('Frequency(MHz)');
 ylabel('Power (dBm)');
 
-yticklabels(arrayfun(@(x) sprintf('$%d$', x), -60:5:-25, 'UniformOutput', false))
+yticklabels(arrayfun(@(x) sprintf('$%d$', x), yticks, 'UniformOutput', false))
 ax = gca;
 ax.FontSize = 16;

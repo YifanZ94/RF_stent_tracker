@@ -1,7 +1,7 @@
 clear; clc
 load('one_loop.mat')
 load('multi_loop.mat')
-clearvars -except data
+clearvars -except data disturb
 
 set(groot, 'defaultAxesTickLabelInterpreter', 'latex');
 set(groot, 'defaultTextInterpreter', 'latex');
@@ -23,12 +23,11 @@ xlabel('Frequency (MHz)', 'Interpreter', 'latex')
 ylabel('Power (dbm)', 'Interpreter', 'latex')
 legend('x=-5','x=-2.5', 'x=0','x=2.5','x=5')
 
-yticklabels(arrayfun(@(x) sprintf('$%d$', x), -65:5:-45, 'UniformOutput', false))
+yticklabels(arrayfun(@(x) sprintf('$%d$', x), yticks, 'UniformOutput', false))
 ax = gca;
 ax.FontSize = 16;
 
 %% between trials
-
 RMSE_trials = mean(abs(disturb));
 figure
 % plot(x, data_2D(:,3), x, data_2D(:,3)+disturb')
@@ -50,6 +49,6 @@ xlabel('Frequency (MHz)', 'FontSize', 16, 'Interpreter', 'latex')
 ylabel('Power (dbm)', 'FontSize', 16, 'Interpreter', 'latex')
 legend('No disturb', 'Disturbed')
 
-yticklabels(arrayfun(@(x) sprintf('$%d$', x), -60:5:-20, 'UniformOutput', false))
+yticklabels(arrayfun(@(x) sprintf('$%d$', x), yticks, 'UniformOutput', false))
 ax = gca;
 ax.FontSize = 16;

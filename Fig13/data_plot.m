@@ -1,6 +1,6 @@
-p1raw=csvread('11Ni.csv',2,2);
-p2raw=csvread('33Ni.csv',2,2);
-p3raw=csvread('1.csv',2,2);
+p1raw=csvread('air.csv',2,2);
+p2raw=csvread('flesh.csv',2,2);
+p3raw=csvread('Nit.csv',2,2);
 
 p1=[];
 p2=[];
@@ -15,7 +15,10 @@ for i=1:41;
 end
 
 fre=800:5:1000;
-
+set(groot, 'defaultAxesTickLabelInterpreter', 'latex');
+set(groot, 'defaultTextInterpreter', 'latex');
+set(groot, 'defaultLegendInterpreter', 'latex');
+set(groot, 'defaultAxesTickLabelInterpreter', 'latex');
 
 plot(fre,p1);
 hold on;
@@ -26,3 +29,6 @@ plot(fre,p3);
 legend('Open air','Under flesh','In Nitinol');
 xlabel('frequency(MHz)');
 ylabel('power gain(dB)');
+ax = gca;
+ax.FontSize = 16;
+yticklabels(arrayfun(@(x) sprintf('$%d$', x), yticks, 'UniformOutput', false))

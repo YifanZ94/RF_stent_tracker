@@ -36,4 +36,4 @@ ylabel('Power (dBm)');
 legend('0','90','180');
 ax = gca;
 ax.FontSize = 16;
-yticklabels(arrayfun(@(x) sprintf('$%d$', x), -65:5:-40, 'UniformOutput', false))
+yticklabels(arrayfun(@(x) sprintf('$%d$', x), yticks, 'UniformOutput', false))
